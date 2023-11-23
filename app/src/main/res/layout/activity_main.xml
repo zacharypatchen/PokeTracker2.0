@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/searchET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="61dp"
+        android:onClick="search"
+        android:text="Search"
+        app:layout_constraintStart_toEndOf="@+id/searchET"
+        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="200dp">
+
+        <ImageView
+            android:id="@+id/pokemonImageView"
+            android:layout_width="204dp"
+            android:layout_height="163dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_pokemon_logo"/>
+
+        <TextView
+            android:id="@+id/nationalNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pokemonImageView"
+            android:layout_marginTop="16dp"
+            android:text="Number: "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/weightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nationalNumberTextView"
+            android:layout_marginTop="8dp"
+            android:text="Weight: "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/heightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weightTextView"
+            android:layout_marginTop="8dp"
+            android:text="Height: "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/baseXpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/heightTextView"
+            android:layout_marginTop="8dp"
+            android:text="Base XP: "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/baseXpTextView"
+            android:layout_marginTop="8dp"
+            android:text="Name: "
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/wtachlistListView"
+        android:layout_width="188dp"
+        android:layout_height="441dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchET" />
+</androidx.constraintlayout.widget.ConstraintLayout>
