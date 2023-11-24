@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,19 +60,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUI(Pokemon pokemon) {
-        // Update the TextViews and ImageView with Pokemon data
-        // Example:
         TextView nationalNumberTextView = findViewById(R.id.nationalNumberTextView);
+        TextView weightTextView = findViewById(R.id.weightTextView);
+        TextView heightTextView = findViewById(R.id.heightTextView);
+        TextView xpTextView = findViewById(R.id.baseXpTextView);
+        TextView nameTextView = findViewById(R.id.nameTextView);
+        ImageView image = findViewById(R.id.pokemonImageView);
         nationalNumberTextView.setText("Number: " + pokemon.getId());
-
-        // Repeat for other TextViews and ImageView
+        weightTextView.setText("Weight: "+ pokemon.getWeight());
+        heightTextView.setText("Height: "+ pokemon.getHeight());
+        xpTextView.setText("Base XP: "+ pokemon.getBaseExperience());
+        nameTextView.setText("Name: "+ pokemon.getName());
+        if (pokemon.getImageURL() != null) {
+            Picasso.get().load(pokemon.getImageURL()).into(image);
+        }
     }
 
     private void addToWatchlist(Pokemon pokemon) {
-        // Add the Pokemon to the watchlist (ListView)
-        // Example:
         ListView watchlistListView = findViewById(R.id.wtachlistListView);
+        if (watchlistListView.getAdapter() == null) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+            watchlistListView.setAdapter(adapter);
+        }
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) watchlistListView.getAdapter();
         adapter.add(pokemon.getName());
     }
+
 }

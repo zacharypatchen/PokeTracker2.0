@@ -6,6 +6,13 @@ public class Pokemon {
     private int weight;
     private int height;
     private int baseExperience;
+    private String imageURL;
+    public String getImageURL() {
+        return imageURL;
+    }
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
     public int getId() {
         return id;
     }
