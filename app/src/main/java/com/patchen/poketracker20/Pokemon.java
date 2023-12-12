@@ -52,11 +52,5 @@ public class Pokemon {
     public void setBaseExperience(int baseExperience) {
         this.baseExperience = baseExperience;
     }
-
-
-
-
-
-    // Getters and setters
 }
 
